@@ -28,3 +28,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# add by me
+gem "css-zero", "~> 0.0.77"
