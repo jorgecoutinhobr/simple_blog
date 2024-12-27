@@ -1,0 +1,12 @@
+<% flash.each do |type, msg|%>
+  <% if type == 'alert' %>
+    <div popover class="flash" style="--flash-position: 1rem;" data-controller="element-removal" data-action="animationend->element-removal#remove" role="alert">
+      <%= image_tag "circle-alert.svg", class: "colorize-negative", size: 20, aria: { hidden: true } %>
+      <%= tag.span msg %>
+    </div>
+  <% else %>
+    <div popover class="flash" style="--flash-position: 1rem;" data-controller="element-removal" data-action="animationend->element-removal#remove" role="alert">
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>

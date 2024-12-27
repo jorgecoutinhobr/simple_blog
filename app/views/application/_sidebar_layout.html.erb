@@ -1,0 +1,17 @@
+<div class="sidebar-layout">
+  <header id="header">
+    <%= render "shared/mobile_menu" %>
+    <%= link_to "Simple Blog", root_path, class: 'text-3xl' %>
+    <%= button_to "SAIR", destroy_user_session_path, method: :delete %>
+    <%= link_to "ENTRAR", new_user_session_path %>
+  </header>
+
+  <aside id="sidebar">
+    <div class="p-2">Sidebar</div>
+    <%= yield :primary_content %>
+  </aside>
+
+  <main id="main">
+    <%= yield :secondary_content %>
+  </main>
+</div>

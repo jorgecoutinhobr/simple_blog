@@ -31,3 +31,4 @@ end
 
 # add by me
 gem "css-zero", "~> 0.0.77"
+gem "devise", "~> 4.9"

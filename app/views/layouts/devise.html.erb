@@ -9,7 +9,6 @@
     <%= csp_meta_tag %>
 
     <%= yield :head %>
-
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
@@ -19,8 +18,9 @@
   </head>
 
  
-   <body>
-    <%= render "shared/flash_msg" if flash.present? %>
-    <%= yield %>
+  <body class="centered-layout bg-shade">
+    <main  class="card">
+      <%= yield %>
+    </main>
   </body>
 </html>
