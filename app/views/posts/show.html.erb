@@ -1,1 +1,9 @@
-<%= render @post %>
+<% content_for :primary_content do %>
+  <%= link_to "Back to posts", root_path, class: 'btn btn--primary btn-lg btn-wide' %>
+<% end %>
+
+<% content_for :secondary_content do %>
+  <%= render partial: 'post', locals: { post: @post, comments: @comments } %>
+<% end %>
+
+ <%= render 'sidebar_layout' %>

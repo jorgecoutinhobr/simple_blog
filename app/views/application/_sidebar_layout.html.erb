@@ -31,10 +31,8 @@
           </div>
         <% else %>
           <%= link_to "Log in", new_user_session_path, class: 'btn btn--blue btn-lg btn-wide mbe-5' %>
-          <%= link_to "Sign up", new_user_registration_path, class: 'btn btn--primary btn-lg btn-wide' %>
+          <%= link_to "Sign up", new_user_registration_path, class: 'btn btn--primary btn-lg btn-wide mbe-5' %>
         <% end %>
-
-
 
         <%= yield :primary_content %>
       </div>

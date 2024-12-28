@@ -1,7 +1,6 @@
 <% content_for :title, "Posts" %>
 
 <% content_for :primary_content do %>
-
 <% end %>
 
 <% content_for :secondary_content do %>
@@ -21,8 +20,8 @@
         
           <%= link_to post do %> 
             <div class="card flex flex-col gap-half bg-card">
-              <span class="text-4xl font-medium leading-none"><%= post.title %></span>
-              <p class="leading-none"><%= truncate(post.body.to_plain_text, length: 400) %></p>
+              <span class="text-3xl font-medium leading-none"><%= post.title %></span>
+              <p class="leading-none text-subtle text-sm"><%= truncate(post.body.to_plain_text, length: 400) %></p>
             </div>
           <% end %>
         </div>

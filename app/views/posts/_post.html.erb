@@ -1,27 +1,33 @@
-<% content_for :primary_content do %>
-  <%= link_to "Back to posts", root_path, class: 'btn btn--primary btn-lg btn-wide' %>
-<% end %>
-
-<% content_for :secondary_content do %>
-  <div id="<%= dom_id post %>" class="prose container">
-    <h1><%= post.title %></h1>
-    <div class="flex items-center gap-1">
-      <div class="avatar" style="margin-right: 10px;">
-        <%= image_tag avatar_url(post.user), alt: "CN" %>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-sm"><%= post.user.email %></span>
-        <span class="text-sm text-subtle"><%= time_ago_in_words(post.created_at) %> ago</span>
-      </div>
+<div id="<%= dom_id post %>" class="prose container">
+  <h1><%= post.title %></h1>
+  <div class="flex items-center gap-1">
+    <div class="avatar" style="margin-right: 10px;">
+      <%= image_tag avatar_url(post.user), alt: "CN" %>
     </div>
-    <p><%= post.body %></p>
-    <div class="flex items-center gap-half">
-      <p><%= link_to "Edit", edit_post_path(post) %></p>
-      <p> | </p>
-      <p><%= link_to 'Delete', post_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></p>
+    <div class="flex flex-col">
+      <span class="text-sm"><%= post.user.email %></span>
+      <span class="text-sm text-subtle"><%= time_ago_in_words(post.created_at) %> ago</span>
     </div>
-    <p><%= link_to "← Back", posts_path %></p>
   </div>
-<% end %>
+  <p><%= post.body %></p>
 
-<%= render "sidebar_layout" %>
+
+  <% comments.each do |comment| %>
+    <%= render 'comments/comment', post: post, comment: comment %>
+  <% end %>
+  <%#== pagy_nav(@pagy) if @pagy.pages > 1 %>
+  <%= render 'comments/form', post: @post%>
+
+
+
+  <% if current_user == @post.user %>
+    <div class="flex items-center gap-half">
+      <p><%= link_to "Edit", edit_post_path(post)  %></p>
+      <p>|</p>
+      <p><%= link_to 'Delete', post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></p>
+    </div>
+  <% end %>
+  <p><%= link_to "← Back", posts_path %></p>
+</div>
+
+

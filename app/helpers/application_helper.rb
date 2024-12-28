@@ -5,4 +5,14 @@ module ApplicationHelper
     hash = Digest::MD5.hexdigest(user.email).downcase
     "http://gravatar.com/avatar/#{hash}.png?s=#{size}"
   end
+
+  def user_avatar(user)
+    return avatar_url(user) if user.present?
+
+    asset_path("mask.svg")
+  end
+
+  def user_nick(user)
+    user&.email || "Anon"
+  end
 end
