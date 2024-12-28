@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[ index show ]
   before_action :set_post, only: %i[ show edit update destroy ]
-  before_action :verify_permission, only: %i[ edit update destroy ]
+  before_action :verify_permission, only: %i[ edit update ]
 
   def index
-    @posts = Post.all
+   @pagy, @posts = pagy(Post.most_recent, items: 3)
   end
 
   def show; end
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy!
 
-    redirect_to posts_path, status: :see_other, notice: "Post was successfully destroyed."
+    redirect_to root_path, status: :see_other, notice: "Post was successfully destroyed."
   end
 
   private
