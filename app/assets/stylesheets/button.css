@@ -78,6 +78,26 @@
   --btn-radius: var(--rounded-full);
 }
 
+.btn-md {
+  --btn-font-size: var(--text-base); 
+  --btn-padding: 0.75rem 1.5rem;
+}
+
+.btn-lg {
+  --btn-font-size: var(--text-lg);
+}
+
+.btn-wide {
+  inline-size: 200px;
+}
+
+.btn--blue {
+  --btn-background: var(--color-blue);
+  --btn-border-color: transparent;
+  --btn-color: white; /* Cor padrão para white mode */
+  --btn-icon-color: var(--color-filter-text-reversed);
+}
+
 [aria-busy] .btn--loading:disabled {
   > * {
     visibility: hidden;

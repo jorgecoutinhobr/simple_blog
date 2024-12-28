@@ -1,0 +1,34 @@
+<% content_for :title, "Posts" %>
+
+<% content_for :primary_content do %>
+
+<% end %>
+
+<% content_for :secondary_content do %>
+  <div id="posts" class="flex flex-col" style="gap: 2rem;">
+    <% @posts.each do |post| %>
+      <div class="flex flex-col items-start gap">
+        <div class="card flex flex-col gap-half bg-card" style="width: 100%;" >
+          <div class="flex gap items-center">
+            <div class="avatar">
+              <%= image_tag avatar_url(post.user), alt: "CN" %>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-medium leading-none"><%= post.user.email %></span>
+              <span class="text-subtle"><%= time_ago_in_words(post.created_at) %> ago</span>
+            </div>
+          </div>
+        
+          <%= link_to post do %> 
+            <div class="card flex flex-col gap-half bg-card">
+              <span class="text-4xl font-medium leading-none"><%= post.title %></span>
+              <p class="leading-none"><%= truncate(post.body.to_plain_text, length: 400) %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= render "sidebar_layout" %>

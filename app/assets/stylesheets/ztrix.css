@@ -83,6 +83,10 @@ trix-editor {
   &:focus-visible {
     outline: 0;
   }
+
+  height: 400px !important;
+  max-height: 400px !important;
+  overflow-y: auto !important;
 }
 
 .trix-content {

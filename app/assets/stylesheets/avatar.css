@@ -38,3 +38,11 @@
     user-select: none;
   }
 }
+
+.avatar-lg {
+  --size: var(--size-16);
+}
+
+.avatar-md {
+  --size: var(--size-10); 
+}
