@@ -10,7 +10,14 @@
       <span class="sr-only">Close</span>
     </button>
     <div class="sheet__content">
-      <h1>Mobile menu</h1>
+      <div class="flex flex-col items-center gap-half" style="margin-top: 2rem;">
+        <% if user_signed_in? %>
+          <%= link_to "Log out", destroy_user_session_path, class: 'btn btn-wide btn-lg btn--primary', data: { turbo_method: :delete } %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: "btn btn-wide btn-lg btn--primary" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn--secondary btn-lg btn-wide"%>
+        <% end %>
+      </div>
     </div>
   </dialog>
 </div>

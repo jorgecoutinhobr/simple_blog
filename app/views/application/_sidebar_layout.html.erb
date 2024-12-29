@@ -1,44 +1,44 @@
-  <div class="sidebar-layout">
-    <header id="header" class="items-center justify-between">
-      <%= render "shared/mobile_menu" %>
-      <%= link_to "Simple Blog", root_path, class: 'text-3xl' %>
-      <%= link_to "Create Post", new_post_path, class: 'btn btn--blue btn-lg ', style: "margin-right: 10%" if user_signed_in? %>
-    </header>
+<div class="sidebar-layout">
+  <header id="header" class="items-center justify-between">
+    <%= render "shared/mobile_menu" %>
+    <%= link_to "Simple Blog", root_path, class: 'text-3xl text-xl--responsive' %>
+    <%= link_to "Create Post", new_post_path, class: 'btn btn--blue btn-lg ', style: "margin-right: 10%" if user_signed_in? %>
+  </header>
 
-    <aside id="sidebar">
-      <div class="flex flex-col items-center">
-        <% if user_signed_in? %>
-          <div class="avatar avatar-lg mbe-2">
-            <%= image_tag avatar_url(current_user)%>
-          </div>
-          <span class="font-medium mbe-2"><%= current_user.nickname %></span>
+  <aside id="sidebar">
+    <div class="flex flex-col items-center">
+      <% if user_signed_in? %>
+        <div class="avatar avatar-lg mbe-2">
+          <%= image_tag avatar_url(current_user)%>
+        </div>
+        <span class="font-medium mbe-2"><%= current_user.nickname %></span>
 
-          <div class="relative" data-controller="popover" data-popover-flip-class="popover--flip">
-            <button id="menu_button" class="btn btn--blue btn-wide btn-lg mbe-2" style="margin-regit: 3px;" data-popover-target="button" data-action="popover#toggle" aria-haspopup="menu" aria-controls="menu">
-              Settings
-            </button>
+        <div class="relative" data-controller="popover" data-popover-flip-class="popover--flip">
+          <button id="menu_button" class="btn btn--blue btn-wide btn-lg mbe-2" style="margin-regit: 3px;" data-popover-target="button" data-action="popover#toggle" aria-haspopup="menu" aria-controls="menu">
+            Settings
+          </button>
 
-            <dialog class="popover" style="--popover-size: 12.5rem;" data-controller="menu" data-popover-target="menu" data-action="click@document->popover#closeOnClickOutside keydown.esc->popover#close close->menu#reset keydown.up->menu#prev keydown.down->menu#next">
-              <div id="menu" class="menu" role="menu" aria-labelledby="menu_button">
-                <div class="menu__header">Menu</div>
-                <hr class="menu__separator" role="separator"/>
-                <div class="menu__group" role="group">
-                  <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn menu__item', role: "menuitem" %>
-                  <%= link_to "Log out", destroy_user_session_path, class: 'btn menu__item', data: { turbo_method: :delete }, role: "menuitem" %>
-                </div>
+          <dialog class="popover" style="--popover-size: 12.5rem;" data-controller="menu" data-popover-target="menu" data-action="click@document->popover#closeOnClickOutside keydown.esc->popover#close close->menu#reset keydown.up->menu#prev keydown.down->menu#next">
+            <div id="menu" class="menu" role="menu" aria-labelledby="menu_button">
+              <div class="menu__header">Menu</div>
+              <hr class="menu__separator" role="separator"/>
+              <div class="menu__group" role="group">
+                <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn menu__item', role: "menuitem" %>
+                <%= link_to "Log out", destroy_user_session_path, class: 'btn menu__item', data: { turbo_method: :delete }, role: "menuitem" %>
               </div>
-            </dialog>
-          </div>
-        <% else %>
-          <%= link_to "Log in", new_user_session_path, class: 'btn btn--blue btn-lg btn-wide mbe-5' %>
-          <%= link_to "Sign up", new_user_registration_path, class: 'btn btn--primary btn-lg btn-wide mbe-5' %>
-        <% end %>
+            </div>
+          </dialog>
+        </div>
+      <% else %>
+        <%= link_to "Log in", new_user_session_path, class: 'btn btn--blue btn-lg btn-wide mbe-5' %>
+        <%= link_to "Sign up", new_user_registration_path, class: 'btn btn--primary btn-lg btn-wide mbe-5' %>
+      <% end %>
 
-        <%= yield :primary_content %>
-      </div>
-    </aside>
+      <%= yield :primary_content %>
+    </div>
+  </aside>
 
-    <main id="main">
-      <%= yield :secondary_content %>
-    </main>
-  </div>
+  <main id="main">
+    <%= yield :secondary_content %>
+  </main>
+</div>

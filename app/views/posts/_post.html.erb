@@ -11,14 +11,10 @@
   </div>
   <p><%= post.body %></p>
 
-
   <% comments.each do |comment| %>
     <%= render 'comments/comment', post: post, comment: comment %>
   <% end %>
-  <%#== pagy_nav(@pagy) if @pagy.pages > 1 %>
   <%= render 'comments/form', post: @post%>
-
-
 
   <% if current_user == @post.user %>
     <div class="flex items-center gap-half">

@@ -8,7 +8,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    # @pagy, @comments = pagy(@post.comments.order(created_at: :desc), items: 3)
     @comments = @post.comments.most_recent
   end
 
