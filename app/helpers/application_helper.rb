@@ -13,6 +13,6 @@ module ApplicationHelper
   end
 
   def user_nick(user)
-    user&.email || "Anon"
+    user&.nickname || "Anon"
   end
 end

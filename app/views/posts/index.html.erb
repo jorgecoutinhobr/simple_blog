@@ -13,7 +13,7 @@
               <%= image_tag avatar_url(post.user), alt: "CN" %>
             </div>
             <div class="flex flex-col">
-              <span class="font-medium leading-none"><%= post.user.email %></span>
+              <span class="font-medium leading-none"><%= post.user.nickname %></span>
               <span class="text-subtle"><%= time_ago_in_words(post.created_at) %> ago</span>
             </div>
           </div>
@@ -24,6 +24,10 @@
               <p class="leading-none text-subtle text-sm"><%= truncate(post.body.to_plain_text, length: 400) %></p>
             </div>
           <% end %>
+          <div class="flex items-center gap-half" style="margin-left: 1px;">
+            <%= image_tag 'comment.svg', alt: 'Comments', class: 'icon' %>
+            <span><%= post.comments.size %></span>
+          </div>
         </div>
       </div>
     <% end %>

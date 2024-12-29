@@ -11,7 +11,7 @@
           <div class="avatar avatar-lg mbe-2">
             <%= image_tag avatar_url(current_user)%>
           </div>
-          <span class="font-medium mbe-2"><%= current_user.email %></span>
+          <span class="font-medium mbe-2"><%= current_user.nickname %></span>
 
           <div class="relative" data-controller="popover" data-popover-flip-class="popover--flip">
             <button id="menu_button" class="btn btn--blue btn-wide btn-lg mbe-2" style="margin-regit: 3px;" data-popover-target="button" data-action="popover#toggle" aria-haspopup="menu" aria-controls="menu">
