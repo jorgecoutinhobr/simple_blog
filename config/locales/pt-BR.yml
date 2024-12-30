@@ -265,4 +265,5 @@ pt-BR:
     are_you_sure: Você tem certeza?
     save_success: Salvo com sucesso!
     delete_success: Excluído com sucesso!
+    define_resource_alert: "Você deve definir `resource_user` no controlador"
 

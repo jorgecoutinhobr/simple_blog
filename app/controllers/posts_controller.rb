@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+  include Verifiable
+
   before_action :authenticate_user!, except: %i[ index show ]
   before_action :set_post, only: %i[ show edit update destroy ]
-  before_action :verify_permission, only: %i[ edit update ]
+  before_action :verify_permission, only: %i[ edit update destroy ]
 
   def index
    @pagy, @posts = pagy(Post.most_recent, items: 3)
@@ -51,9 +53,7 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :body)
     end
 
-    def verify_permission
-      if current_user != @post.user
-        redirect_to root_path, alert: t("text.permission_denied")
-      end
+    def resource_user
+      @post.user
     end
 end
