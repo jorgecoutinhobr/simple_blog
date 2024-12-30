@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   let(:user) { create(:user) }
-  let(:post) { create(:post, user: user) }
+  let(:tag) { create(:tag) }
+  let(:post) { create(:post, user: user, tags: [ tag ]) }
   let(:comment) { create(:comment, post: post, user: user) }
 
   describe 'associations' do

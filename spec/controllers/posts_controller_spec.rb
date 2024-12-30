@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
   let(:user) { create(:user) }
-  let(:new_post) { create(:post, user: user) }
+  let(:tag) { create(:tag) }
+  let(:new_post) { create(:post, user: user, tags: [ tag ]) }
   let(:post_attributes) { { title: 'J', body: 'K', user_id: '1' } }
 
   before do
@@ -87,7 +88,7 @@ RSpec.describe PostsController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'destroys the requested post' do
-      post_to_delete = create(:post, user: user)
+      post_to_delete = create(:post, user: user, tags: [ tag ])
       expect {
         delete :destroy, params: { id: post_to_delete.id }
       }.to change(Post, :count).by(-1)

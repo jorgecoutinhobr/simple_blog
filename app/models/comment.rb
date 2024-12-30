@@ -3,4 +3,6 @@ class Comment < ApplicationRecord
   belongs_to :post
 
   scope :most_recent, -> { order(created_at: :desc) }
+
+  validates :body, presence: true
 end
