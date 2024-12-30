@@ -17,10 +17,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="centered-layout bg-shade">
-    <%= render "shared/flash_msg" if flash.present? %>
-    <main  class="card">
-      <%= yield %>
-    </main>
+  <body class="header-layout">
+      <header id="header">
+        <div><%= link_to 'Simple Blog', root_path, class: 'text-3xl' %></div>
+      </header> 
+    <div class="centered-layout bg-shade">
+      <%= render "shared/flash_msg" if flash.present? %>
+      <main class="card">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>

@@ -1,0 +1,20 @@
+<% content_for :primary_content do %>
+  <%= link_to t('text.back_to_posts'), root_path, class: 'btn btn--primary btn-wide btn-lg' %>
+<% end %>
+<% content_for :secondary_content do %>
+  <div class="flex justify-center items-center">
+    <%= form_with(model: @file_upload, local: true, html: { class: 'card flex flex-col gap' }) do |form| %>
+      <div class="field flex flex-col gap-half">
+        <%= form.label :file, class: 'text-sm font-medium leading-none' %>
+        <%= form.file_field :file, class: 'input' %>
+        <p class="text-xs text-subtle mt-1"><%= t('text.tag_tip') %></p>
+      </div>
+
+      <div class="actions flex items-center mb-2">
+        <%= form.submit t('button.submit'), class: 'btn btn--primary i-full' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+ <%= render 'sidebar_layout' %>

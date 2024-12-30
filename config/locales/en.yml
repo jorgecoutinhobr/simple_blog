@@ -238,6 +238,7 @@ en:
     create_post: Create Post
     show_post: Show Post
     filter: Filter
+    upload_txt: Upload tags txt
   text:
     account: Account
     language: Language
@@ -266,3 +267,6 @@ en:
     define_resource_alert: "You must define `resource_user` in the including controller"
     ago: ago
     select_tag: Select a tag
+    tag_tip: The file must be a .txt with one tag per line
+    job_schedule: File uploaded and processing
+    job_failed: File upload failed

@@ -242,6 +242,7 @@ pt-BR:
     create_post: Criar post
     show_post: Visualizar post
     filter: Filtrar
+    upload_txt: Enviar txt tags
   text:
     account: Conta
     language: Idioma
@@ -270,4 +271,7 @@ pt-BR:
     define_resource_alert: "Você deve definir `resource_user` no controlador"
     ago: atrás
     select_tag: Selecione uma tag
+    tag_tip: O arquivo txt deve conter uma tag por linha
+    job_schedule: Arquivo enviado e em processamento
+    job_failed: Ocorreu um erro ao processar o arquivo
 
