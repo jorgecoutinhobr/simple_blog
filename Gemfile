@@ -35,6 +35,6 @@ end
 # add by me
 gem "css-zero", "~> 0.0.77"
 gem "devise", "~> 4.9"
-gem "pagy", "~> 8"
+gem "pagy", "~> 9"
 gem "randamu"
 gem "pry-rails"
