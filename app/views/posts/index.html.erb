@@ -1,17 +1,33 @@
 <% content_for :title, "Posts" %>
 
 <% content_for :secondary_content do %>
+
+  <%= form_with(url: posts_path, method: :get, html: { class: 'flex justify-end items-center gap-2' }) do %>
+    <%= select_tag 'tag', options_from_collection_for_select(Tag.all, 'name', 'name', params[:tag]), 
+                                                              prompt: t('text.select_tag'), 
+                                                              class: 'input',
+                                                              style: "inline-size: 15%; margin-right: 4px;" %>
+    <%= submit_tag t('button.filter'), class: 'btn btn--primary' %>
+  <% end %>
+
   <div id="posts" class="flex flex-col" style="gap: 2rem;">
     <% @posts.each do |post| %>
       <div class="flex flex-col items-start gap">
         <div class="card flex flex-col gap-half bg-card" style="width: 100%;" >
-          <div class="flex gap items-center">
-            <div class="avatar">
-              <%= image_tag avatar_url(post.user), alt: "CN" %>
+          <div class="flex gap items-center justify-between">
+            <div class="flex gap items-center">
+              <div class="avatar">
+                <%= image_tag avatar_url(post.user), alt: "CN" %>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-medium leading-none"><%= post.user.nickname %></span>
+                <span class="text-subtle"><%= time_ago_in_words(post.created_at) %> <%= t('text.ago') %></span>
+              </div>
             </div>
-            <div class="flex flex-col">
-              <span class="font-medium leading-none"><%= post.user.nickname %></span>
-              <span class="text-subtle"><%= time_ago_in_words(post.created_at) %> <%= t('text.ago') %></span>
+            <div class="flex gap">
+              <% post.tags.each do |tag| %>
+                <span class="badge badge--primary"><%= tag.name %></span>
+              <% end %>
             </div>
           </div>
         

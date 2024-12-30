@@ -238,8 +238,10 @@ pt-BR:
     save: Salvar
     next: Próximo
     previous: Anterior
+    remember_me: Lembrar de mim
     create_post: Criar post
     show_post: Visualizar post
+    filter: Filtrar
   text:
     account: Conta
     language: Idioma
@@ -267,4 +269,5 @@ pt-BR:
     delete_success: Excluído com sucesso!
     define_resource_alert: "Você deve definir `resource_user` no controlador"
     ago: atrás
+    select_tag: Selecione uma tag
 

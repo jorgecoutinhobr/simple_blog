@@ -4,7 +4,17 @@ class PostsController < ApplicationController
   before_action :verify_permission, only: %i[ edit update destroy ]
 
   def index
-   @pagy, @posts = pagy(Post.most_recent, items: 3)
+    if params[:tag].present?
+      @pagy, @posts = pagy(
+        Post.most_recent
+          .includes(:tags)
+          .joins(:tags)
+          .where(tags: { name: params[:tag] }),
+        items: 3
+      )
+    else
+      @pagy, @posts = pagy(Post.most_recent, items: 3)
+    end
   end
 
   def show
@@ -49,7 +59,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, tag_ids: [])
   end
 
   def resource_user

@@ -237,6 +237,7 @@ en:
     remember_me: Remember me
     create_post: Create Post
     show_post: Show Post
+    filter: Filter
   text:
     account: Account
     language: Language
@@ -264,3 +265,4 @@ en:
     delete_success: Deleted successfully!
     define_resource_alert: "You must define `resource_user` in the including controller"
     ago: ago
+    select_tag: Select a tag
