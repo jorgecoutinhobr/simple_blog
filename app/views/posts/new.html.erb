@@ -1,13 +1,13 @@
-<% content_for :title, "New post" %>
+<% content_for :title, t('button.create_post') %>
 
 <% content_for :primary_content do %>
   <div class="inline-flex flex-wrap items-center gap" style="--row-gap: .5rem">
-    <%= link_to "Back to posts", posts_path, class: "btn btn--primary btn-lg btn-wide " %>
+    <%= link_to t('text.back_to_posts'), posts_path, class: "btn btn--primary btn-lg btn-wide " %>
   </div>
 <% end %>
 
 <% content_for :secondary_content do %>
-  <h1 class="font-bold text-4xl mbe-4">New post</h1>
+  <h1 class="font-bold text-4xl mbe-4"><%= t('button.create_post') %></h1>
   <%= render "form", post: @post %>
 <% end %>
 

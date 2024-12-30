@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="flex flex-col gap-half mbe-4">
-    <%= form.label :title, class: "text-sm font-medium leading-none" %>
+    <%= form.label t('text.title'), class: "text-sm font-medium leading-none" %>
     <%= form.text_field :title, class: "input" %>
   </div>
 
   <div class="flex flex-col gap-half mbe-4">
-    <%= form.label :body, class: "text-sm font-medium leading-none" %>
+    <%= form.label t('text.message'), class: "text-sm font-medium leading-none" %>
     <%= form.rich_text_area :body, class: "input" %>
   </div>
 

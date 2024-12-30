@@ -1,12 +1,20 @@
 <div id="<%= dom_id post %>" class="prose container">
-  <h1><%= post.title %></h1>
+  <div class="flex items-center justify-between">
+    <h1><%= post.title %></h1>
+    <% if current_user == @post.user %>
+      <div class="flex items-center gap-half">
+        <%= link_to t('button.edit'), edit_post_path(post), class: 'btn btn-lg', style: 'text-decoration: none;' %>
+        <%= link_to t('button.delete'), post_path(post), data: { turbo_method: :delete, turbo_confirm: t('text.are_you_sure') }, class: 'btn btn--negative btn-lg', style: 'text-decoration: none;' %>
+      </div>
+    <% end %>
+  </div>
   <div class="flex items-center gap-1">
     <div class="avatar" style="margin-right: 10px;">
       <%= image_tag avatar_url(post.user), alt: "CN" %>
     </div>
     <div class="flex flex-col">
       <span class="text-sm"><%= post.user.nickname %></span>
-      <span class="text-sm text-subtle"><%= time_ago_in_words(post.created_at) %> ago</span>
+      <span class="text-sm text-subtle"><%= time_ago_in_words(post.created_at) %></span>
     </div>
   </div>
   <p><%= post.body %></p>
@@ -14,15 +22,7 @@
   <% comments.each do |comment| %>
     <%= render 'comments/comment', post: post, comment: comment %>
   <% end %>
-  <%= render 'comments/form', post: @post%>
+  <%= render 'comments/form', post: @post %>
 
-  <% if current_user == @post.user %>
-    <div class="flex items-center gap-half">
-      <%= link_to "Edit", edit_post_path(post), class: 'btn', style: 'text-decoration: none;' %>
-      <%= link_to 'Delete', post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn', style: 'text-decoration: none;' %>
-    </div>
-  <% end %>
-  <p><%= link_to "← Back", posts_path %></p>
+  <p><%= link_to t('button.back'), posts_path %></p>
 </div>
-
-

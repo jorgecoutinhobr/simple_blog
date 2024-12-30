@@ -37,7 +37,7 @@
     <%= form.submit "Update", class: "btn btn--primary i-full" %>
   </div>
 
-  <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, style: "cursor: pointer;" %></div>
+  <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: t('text.are_you_sure'), turbo_confirm: t('text.are_you_sure') }, method: :delete, style: "cursor: pointer;" %></div>
 
-  <%= link_to "← Back", :back %>
+  <%= link_to t('button.back'), :back %>
 <% end %>

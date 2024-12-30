@@ -12,11 +12,13 @@
     <div class="sheet__content">
       <div class="flex flex-col items-center gap-half" style="margin-top: 2rem;">
         <% if user_signed_in? %>
-          <%= link_to "Log out", destroy_user_session_path, class: 'btn btn-wide btn-lg btn--primary', data: { turbo_method: :delete } %>
+          <%= link_to t('button.logout'), destroy_user_session_path, class: 'btn btn-wide btn-lg btn--primary', data: { turbo_method: :delete } %>
         <% else %>
-          <%= link_to "Sign in", new_user_session_path, class: "btn btn-wide btn-lg btn--primary" %>
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn--secondary btn-lg btn-wide"%>
+          <%= link_to t('button.login'), new_user_session_path, class: "btn btn-wide btn-lg btn--primary" %>
+          <%= link_to t('button.sign_up'), new_user_registration_path, class: "btn btn--secondary btn-lg btn-wide"%>
         <% end %>
+        <%= link_to "Português", "#{request.path}?locale=pt-BR", class: 'btn btn--positive btn-lg btn-wide' %>
+        <%= link_to "English", "#{request.path}?locale=en", class: 'btn btn--blue btn-lg btn-wide' %>
       </div>
     </div>
   </dialog>

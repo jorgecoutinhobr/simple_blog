@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.save
-      redirect_to @post, notice: "Post was successfully created."
+      redirect_to @post, notice: t("text.post_created")
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: "Post was successfully updated."
+      redirect_to @post, notice: t("text.post_updated")
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy!
 
-    redirect_to root_path, status: :see_other, notice: "Post was successfully destroyed."
+    redirect_to root_path, status: :see_other, notice: t("text.post_deleted")
   end
 
   private
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
 
     def verify_permission
       if current_user != @post.user
-        redirect_to root_path, alert: "You don't have permission to do that."
+        redirect_to root_path, alert: t("text.permission_denied")
       end
     end
 end

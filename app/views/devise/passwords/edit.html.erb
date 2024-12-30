@@ -1,25 +1,25 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), class: 'card flex flex-col gap' ,html: { method: :put }) do |form| %>
   <div class="flex flex-col gap-half">
-    <h3 class="text-2xl font-semibold leading-none">New password</h3>
-    <p class="text-sm text-subtle">Enter your new password below to reset your account.</p>
+    <h3 class="text-2xl font-semibold leading-none"><%= t('text.new_password') %></h3>
+    <p class="text-sm text-subtle"><%= t('text.reset_account') %></p>
   </div>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= form.hidden_field :reset_password_token %>
 
   <div class="flex flex-col gap mb-2">
     <div class="flex flex-col gap-half">
-      <%= form.label :password, "New password", class: 'text-sm font-medium leading-none' %>
+      <%= form.label t('text.password'), "New password", class: 'text-sm font-medium leading-none' %>
       <%= form.password_field :password, autofocus: true, autocomplete: "new-password", class: 'input' %>
     </div>
 
     <div class="flex flex-col gap-half">
-      <%= form.label :password_confirmation, "Confirm new password", class: 'text-sm font-medium leading-none' %>
+      <%= form.label t('text.password_confirmation'), "Confirm new password", class: 'text-sm font-medium leading-none' %>
       <%= form.password_field :password_confirmation, autocomplete: "new-password", class: 'input' %>
     </div>
   </div>
 
   <div class="flex items-center mb-2">
-    <%= form.submit " Confirm new password", class: "btn btn--primary i-full" %>
+    <%= form.submit t('button.save'), class: "btn btn--primary i-full" %>
   </div>
 
   <%= render "devise/shared/links" %>

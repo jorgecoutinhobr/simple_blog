@@ -1,9 +1,9 @@
 <%= form_with(model: [post, post.comments.build], class: 'mt-2') do |form| %>
   <div>
-    <%= form.text_area :body, required: true, class: 'input', placeholder: 'Deixe um comentario' %>
+    <%= form.text_area :body, required: true, class: 'input', placeholder: t('text.leave_a_comment') %>
   </div>
 
   <div>
-    <%= form.submit 'Enviar', class: 'btn btn btn--primary mbe-2' %>
+    <%= form.submit t('button.submit'), class: 'btn btn btn--primary mbe-2' %>
   </div>
 <% end %>
