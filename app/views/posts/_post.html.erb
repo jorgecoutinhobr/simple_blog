@@ -1,10 +1,14 @@
 <div id="<%= dom_id post %>" class="prose container">
   <div class="flex items-center justify-between">
     <h1><%= post.title %></h1>
-    <% if current_user == @post.user %>
+    <% if author_of?(post) %>
       <div class="flex items-center gap-half">
         <%= link_to t('button.edit'), edit_post_path(post), class: 'btn btn-lg', style: 'text-decoration: none;' %>
-        <%= link_to t('button.delete'), post_path(post), data: { turbo_method: :delete, turbo_confirm: t('text.are_you_sure') }, class: 'btn btn--negative btn-lg', style: 'text-decoration: none;' %>
+        <%= link_to t('button.delete'), post_path(post), 
+                                        data: { turbo_method: :delete, 
+                                        turbo_confirm: t('text.are_you_sure') }, 
+                                        class: 'btn btn--negative btn-lg', 
+                                        style: 'text-decoration: none;' %>
       </div>
     <% end %>
   </div>
@@ -14,7 +18,7 @@
     </div>
     <div class="flex flex-col">
       <span class="text-sm"><%= post.user.nickname %></span>
-      <span class="text-sm text-subtle"><%= time_ago_in_words(post.created_at) %></span>
+      <span class="text-sm text-subtle"><%= time_ago_in_words(post.created_at) %> <%= t('text.ago') %></span>
     </div>
   </div>
   <p><%= post.body %></p>

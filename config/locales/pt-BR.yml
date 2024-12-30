@@ -266,4 +266,5 @@ pt-BR:
     save_success: Salvo com sucesso!
     delete_success: Excluído com sucesso!
     define_resource_alert: "Você deve definir `resource_user` no controlador"
+    ago: atrás
 

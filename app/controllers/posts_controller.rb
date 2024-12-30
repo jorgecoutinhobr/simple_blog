@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  include Verifiable
-
   before_action :authenticate_user!, except: %i[ index show ]
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :verify_permission, only: %i[ edit update destroy ]
@@ -45,15 +43,16 @@ class PostsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    def post_params
-      params.require(:post).permit(:title, :body)
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def resource_user
-      @post.user
-    end
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
+
+  def resource_user
+    @post.user
+  end
 end

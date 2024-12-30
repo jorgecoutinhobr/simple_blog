@@ -263,3 +263,4 @@ en:
     save_success: Saved successfully!
     delete_success: Deleted successfully!
     define_resource_alert: "You must define `resource_user` in the including controller"
+    ago: ago

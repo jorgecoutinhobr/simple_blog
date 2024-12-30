@@ -1,9 +1,8 @@
 class CommentsController < ApplicationController
-  include Verifiable
-
-  before_action :set_post, only: %i[create destroy]
-  before_action :set_comment, only: %i[destroy]
-  before_action :verify_permission, only: %i[destroy]
+  before_action :set_post, only: %i[ create destroy ]
+  before_action :set_comment, only: %i[ destroy ]
+  before_action :authenticate_user!, only: %i[ destroy ]
+  before_action :verify_permission, only: %i[ destroy ]
 
   def create
     @comment = @post.comments.create(comment_params)
@@ -25,18 +24,20 @@ class CommentsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:post_id])
-    end
 
-    def comment_params
-      params.require(:comment).permit(:body)
-    end
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
 
-    def set_comment
-      @comment = @post.comments.find(params[:id])
-    end
-    def resource_user
-      @comment.user
-    end
+  def comment_params
+    params.require(:comment).permit(:body)
+  end
+
+  def set_comment
+    @comment = @post.comments.find(params[:id])
+  end
+
+  def resource_user
+    @comment.user
+  end
 end
