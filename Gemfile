@@ -39,3 +39,9 @@ gem "pagy", "~> 8"
 gem "randamu"
 gem "pry-rails"
 gem "sidekiq"
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "redis", "~> 5.3"
+
+gem "aws-sdk-s3", "~> 1.176", :require => false
