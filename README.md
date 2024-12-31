@@ -1,24 +1,56 @@
-# README
+## Descrição do projeto
+<p>Desafio de avaliação proposto pela Mainô. A tarefa é implementar um blog utilizando Ruby on Rails seguindo as regras estabelecidas</p>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h2>Informações do Projeto</h2>
 
-Things you may want to cover:
+### Versões
 
-* Ruby version
+- **Ruby**: 3.3.0
+- **Rails**: 7.2.2.1
 
-* System dependencies
+### Como clonar e executar o repositório
 
-* Configuration
+1. **Clone o repositório**:
+   ```sh
+   git clone https://github.com/seu-usuario/simple_blog.git
+   cd simple_blog
+   ```
 
-* Database creation
+2. **Instale as dependências**:
+   ```sh
+   bundle install
+   ```
 
-* Database initialization
+3. **Configure o banco de dados**:
+   ```sh
+   rails db:create
+   rails db:migrate
+   rails db:seed
+   ```
 
-* How to run the test suite
+4. **Inicie o servidor**:
+   ```sh
+   rails server
+   ```
 
-* Services (job queues, cache servers, search engines, etc.)
+5. **Acesse a aplicação**:
+   Abra o navegador e acesse `http://localhost:3000`
 
-* Deployment instructions
+### Testes
 
-* ...
+Para executar os testes, use o seguinte comando:
+```sh
+bundle exec rspec spec
+```
+
+<h2>Funcionalidades extras</h2>
+<ul>
+  <li>Adicionado I18n</li>
+  <li>Upload de txt para criação de tags utilizando sidekiq</li>
+  <li>Testes com RSpec</li>
+  <li>Tags</li>
+  <li>Filtro de posts por tag</li>
+  <li>Adicionado foto de perfil usando Gravatar</li>
+  <li>Posts usando rich text</li>
+  <li>O usuário pode apagar os próprios comentários</li>
+</ul>
