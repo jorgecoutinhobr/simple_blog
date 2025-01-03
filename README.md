@@ -12,7 +12,7 @@
 
 1. **Clone o repositório**:
    ```sh
-   git clone https://github.com/seu-usuario/simple_blog.git
+   git clone https://github.com/jorgecoutinhobr/simple_blog.git
    cd simple_blog
    ```
 
