@@ -1,6 +1,21 @@
 ---
 en:
   activerecord:
+    models:
+      user: User
+      post: Post
+      tag: Tag
+    attributes:
+      user:
+        nickname: Nickname
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
+      post:
+        title: Title
+        body: Message
+      tag:
+        name: Name
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'
@@ -270,3 +285,9 @@ en:
     tag_tip: The file must be a .txt with one tag per line
     job_schedule: File uploaded and processing
     job_failed: File upload failed
+    select_value: Select a tag
+    search: Search
+    current_password: Current password
+    current_password_text: Enter your current password to confirm changes
+    unhappy?: Are you unhappy?
+    cancel_account: Cancel account

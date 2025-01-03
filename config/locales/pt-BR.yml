@@ -1,6 +1,21 @@
 ---
 pt-BR:
   activerecord:
+    models:
+      user: Usuário
+      post: Post
+      tag: Tag
+    attributes:
+      user:
+        nickname: Apelido
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmação de senha
+      post:
+        title: Título
+        body: Mensagem
+      tag:
+        name: Nome
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -274,4 +289,10 @@ pt-BR:
     tag_tip: O arquivo txt deve conter uma tag por linha
     job_schedule: Arquivo enviado e em processamento
     job_failed: Ocorreu um erro ao processar o arquivo
+    select_value: Selecione uma tag
+    search: Buscar
+    current_password: Senha atual
+    current_password_text: Digite sua senha atual para confirmar as alterações
+    unhappy?: "Não está feliz?"
+    cancel_account: "Cancelar conta"
 
