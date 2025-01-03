@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   before_action :verify_permission, only: %i[ destroy ]
 
   def create
-    @comment = @post.comments.create(comment_params)
+    @comment = @post.comments.new(comment_params)
     @comment.user = current_user if user_signed_in?
 
     if @comment.save
