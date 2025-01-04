@@ -5,13 +5,12 @@ class PostsController < ApplicationController
 
   def index
     if params[:tag].present?
-      @pagy, @posts = pagy(
-        Post.most_recent
-          .includes(:tags)
-          .joins(:tags)
-          .where(tags: { name: params[:tag] }),
-        items: 3
-      )
+      query = Post.most_recent
+                  .includes(:tags)
+                  .joins(:tags)
+                  .where(tags: { name: params[:tag] })
+
+      @pagy, @posts = pagy(query, items: 3)
     else
       @pagy, @posts = pagy(Post.most_recent, items: 3)
     end
