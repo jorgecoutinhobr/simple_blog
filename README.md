@@ -39,15 +39,3 @@ Para executar os testes, use o seguinte comando:
 ```sh
 bundle exec rspec spec
 ```
-
-<h2>Funcionalidades extras</h2>
-<ul>
-  <li>Adicionado I18n</li>
-  <li>Upload de txt para criação de tags utilizando sidekiq</li>
-  <li>Testes com RSpec</li>
-  <li>Tags</li>
-  <li>Filtro de posts por tag</li>
-  <li>Adicionado foto de perfil usando Gravatar</li>
-  <li>Posts usando rich text</li>
-  <li>O usuário pode apagar os próprios comentários</li>
-</ul>
