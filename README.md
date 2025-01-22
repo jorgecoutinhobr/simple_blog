@@ -1,6 +1,3 @@
-## Descrição do projeto
-<p>Desafio de avaliação proposto pela Mainô. A tarefa é implementar um blog utilizando Ruby on Rails seguindo as regras estabelecidas</p>
-
 <h2>Informações do Projeto</h2>
 
 ### Versões
