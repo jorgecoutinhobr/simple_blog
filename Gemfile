@@ -42,6 +42,6 @@ gem "sidekiq"
 
 gem "dockerfile-rails", ">= 1.6", group: :development
 
-gem "redis", "~> 5.3"
+gem "redis", "~> 5.4"
 
 gem "aws-sdk-s3", "~> 1.176", require: false
