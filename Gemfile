@@ -33,7 +33,7 @@ group :test do
 end
 
 # add by me
-gem "css-zero", "~> 0.0.77"
+gem "css-zero", "~> 1.1.13"
 gem "devise", "~> 4.9"
 gem "pagy", "~> 8"
 gem "randamu"
